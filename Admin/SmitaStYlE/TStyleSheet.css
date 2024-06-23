@@ -1,0 +1,119 @@
+﻿
+h2 { font-family: deliciousheavy, Arial, sans-serif; }
+h3.alert { font-family: tallys, Arial, sans-serif; }
+   
+  .dottedTextBox { 
+    border: 1px dashed #000000; 
+    outline:0; 
+    height:25px; 
+  } 
+   .SmalldottedTextBox { 
+    border: 1px dotted #000000; 
+    outline:0; 
+    height:25px; 
+  } 
+  
+  .Border
+{
+    border: 1px double #000066;
+    outline: 2;
+    color: #2c2c2c;
+    font-family: Cambria;
+    font-size: 14px;
+} 
+   h1 
+{
+  font-size:30px;
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    color:#0f9ddf;
+    font-weight:bold;
+}
+  
+  	.Header1 {
+		text-decoration: none;
+		color: #0d65a9;
+        font-size:26px;
+        font-weight:bolder;
+		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.5)), to(rgba(0,0,0,1)));
+		text-shadow: 0 2px 0 #e9e9e9;
+		-webkit-transition: all .3s;
+		-moz-transition: all .3s;
+		transition: all .3s;
+	}
+	
+	.Header1:hover {
+		color: #d73030;
+		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.3)), to(rgba(0,0,0,1)));
+		
+	}
+
+	.Header1:after {
+		color: #dbdbdb;
+		content : attr(data-title);
+	}
+	.button {
+   border-top: 1px solid #1c92db;
+   background: #5cbeff;
+   background: -webkit-gradient(linear, left top, left bottom, from(#487796), to(#5cbeff));
+   background: -webkit-linear-gradient(top, #487796, #5cbeff);
+   background: -moz-linear-gradient(top, #487796, #5cbeff);
+   background: -ms-linear-gradient(top, #487796, #5cbeff);
+   background: -o-linear-gradient(top, #487796, #5cbeff);
+   padding: 4.5px 9px;
+   -webkit-border-radius: 37px;
+   -moz-border-radius: 37px;
+   border-radius: 37px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 10px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #78a6c4;
+   background: #78a6c4;
+   color: #992c99;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+   
+  
+   .TextBoxGraiant {
+    border: solid 1px #e0e0e0;  
+    background: #fff;  
+    background: -webkit-gradient(linear, left top, left 25, from(#fff), color-stop(4%, #eee), to(#fff));  
+    background: -moz-linear-gradient(top, #fff, #eee 1px, #fff 25px);  
+    box-shadow: rgba(0,0,0, 0.2) 0 0 1px;  
+    -moz-box-shadow: rgba(0,0,0, 0.2) 0 0 1px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.2) 0 0 1px;
+    color: #7d7d7d;
+    outline: 0;  
+}  
+ input.example4 {
+		background: url('images/user_icon.png') no-repeat scroll right center #FFFFFF;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #888;
+	color: #666;
+	float: left;
+	padding: 5px 27px 5px 10px;
+	width: 165px;
+	outline: none;
+}

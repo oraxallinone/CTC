@@ -1,0 +1,65 @@
+﻿/*Css Styles For Word Wheel*/
+.listMain
+{
+	background-image:url('images/wordWheelBack.gif');
+	background-repeat:repeat-x;
+	background-color:#FFFFFF;
+	z-index:1000;
+	width:245px !important;
+	max-height:auto;
+	text-align:inherit;
+	text-indent:-1;
+	list-style:none;
+	overflow-y:scroll;
+	scrollbar-arrow-color:#B89020;
+	scrollbar-base-color:#8E6E1C;
+	scrollbar-face-color:#B6C5D4;
+	scrollbar-3dlight-color:#8E6E1C;
+	scrollbar-highlight-color:#EED47D;
+	scrollbar-shadow-color:#959595;
+	scrollbar-darkshadow-color:#00337E;
+	margin-left:0px;
+	border-bottom:1px solid #B5C6D4;
+	border-left:1px solid #B5C6D4;
+	margin-top:0px;
+}
+.wordWheel .itemsMain
+{
+	background:none;
+	border-collapse:collapse;
+	color:#00337E;
+	white-space:nowrap;
+	text-align:inherit left;
+}
+.wordWheel .itemsSelected
+{
+	background-image:url('images/wordWheelSelectedIndexBack.gif');
+	background-repeat:repeat-x;
+	background-color:#EED47D;
+	color:#00337E;
+	border-top:1px solid #FFF8E8;
+	border-left:1px solid #FFF8E8;
+	border-bottom:1px solid #00337E;
+	border-right:1px solid #00337E;
+}
+
+
+
+
+/*  HOW TO USE
+
+        		<ajax:AutoCompleteExtender runat="server" ID="_toCityAutoCompleteExtender" 
+			TargetControlID="_toCitiesTextBox"
+			ServicePath="~/WordWheelService.asmx" 
+			ServiceMethod="GetCities"
+			MinimumPrefixLength="2" 
+			CompletionInterval="250"
+			EnableCaching="True"
+			CompletionSetCount="20"
+			DelimiterCharacters=";, :"
+			CompletionListCssClass="wordWheel listMain .box"
+			CompletionListItemCssClass="wordWheel itemsMain"
+			CompletionListHighlightedItemCssClass="wordWheel itemsSelected">
+		</ajax:AutoCompleteExtender>
+
+*/

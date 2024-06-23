@@ -1,0 +1,7 @@
+﻿
+#footer{width:994px; height:27px; background-image:url(../images/footer_bg.png); padding:35px 15px 0 15px; margin:0 auto; vertical-align:bottom;}
+#footer_i{width:1196px; height:27px; background-image:url(../images/footer_bg.png); padding:35px 15px 0 15px; margin:0 auto; vertical-align:bottom;}
+#copyright {float:left; width:350px; color:#4a4a4a; font-size:12px; font-family:Verdana;}
+#maintain {float:right; width:280px; color:#4a4a4a; font-size:12px; font-family:Verdana;}
+#maintain a{text-decoration:none; color:#006baf; font-weight:600;}
+#maintain a:hover{text-decoration:underline;}

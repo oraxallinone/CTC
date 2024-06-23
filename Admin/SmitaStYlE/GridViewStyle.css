@@ -1,0 +1,43 @@
+﻿
+.mGrid { 
+    width: 100%; 
+    background-color: #fff; 
+    margin: 5px 0 10px 0; 
+    border: solid 1px #525252; 
+    border-collapse:collapse; 
+	font: 9px Tahoma;
+}
+.mGrid td { 
+    padding: 2px; 
+    border: solid 1px #c1c1c1; 
+    color: #717171; 
+	font: 11px Tahoma;
+}
+.mGrid th
+{
+    padding: 4px 2px 2px 2px;
+    color: #fff;
+    background: #424242 url('GridImg/grd_head1.png') repeat-x top;
+    border-left: solid 1px #525252;
+    font-size: 0.9em;
+}
+.mGrid .alt
+{
+    background: #fcfcfc url('GridImg/grd_alt1.png') repeat-x top;
+}
+.mGrid .pgr
+{
+    background: #424242 url('GridImg/grd_pgr1.png') repeat-x top;
+}
+.mGrid .pgr table { margin: 5px 0; }
+.mGrid .pgr td { 
+    border-width: 0; 
+    padding: 0 6px; 
+    border-left: solid 1px #666; 
+    font-weight: bold; 
+    color: #fff; 
+    line-height: 12px; 
+	font: 11px Tahoma;
+ }   
+.mGrid .pgr a { color: #666; text-decoration: none; }
+.mGrid .pgr a:hover { color: #000; text-decoration: none; }

@@ -1,0 +1,443 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" content="">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <title></title>
+  
+    <link href="SmitaStYlE/Calender/orange.css" rel="stylesheet" type="text/css" />
+    <link href="SmitaStYlE/admin_default.css" rel="stylesheet" type="text/css" />
+    <link href="SmitaStYlE/AllButons.css" rel="stylesheet" type="text/css" />
+    <link href="SmitaStYlE/AllTextBox.css" rel="stylesheet" type="text/css" />
+    <link href="SmitaStYlE/GridViewStyle.css" rel="stylesheet" type="text/css" />
+    <link href="SmitaStYlE/Footer.css" rel="stylesheet" type="text/css" />
+    <link href="SmitaStYlE/Calender/orange.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        var rev = "fwd";
+        function titlebar(val) {
+            var msg = "Welcome To Rashmi Motor";
+            var res = " ";
+            var speed = 100;
+            var pos = val;
+
+            msg = "|--- " + msg + " ---|";
+            var le = msg.length;
+            if (rev == "fwd") {
+                if (pos < le) {
+                    pos = pos + 1;
+                    scroll = msg.substr(0, pos);
+                    document.title = scroll;
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                }
+                else {
+                    rev = "bwd";
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                }
+            }
+            else {
+                if (pos > 0) {
+                    pos = pos - 1;
+                    var ale = le - pos;
+                    scrol = msg.substr(ale, le);
+                    document.title = scrol;
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                }
+                else {
+                    rev = "fwd";
+                    timer = window.setTimeout("titlebar(" + pos + ")", speed);
+                }
+            }
+        }
+
+
+        titlebar(0);
+    </script>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
+    <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css" />
+    <!-- SmartAdmin RTL Support is under construction
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.css"> -->
+    <!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+    <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.css" /> -->
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon" />
+    <!-- GOOGLE FONT -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700" />
+    <!-- Specifying a Webpage Icon for Web Clip 
+			 Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+    <link rel="apple-touch-icon" href="img/splash/sptouch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/splash/touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="img/splash/touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img/splash/touch-icon-ipad-retina.png" />
+    <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Startup image for web apps -->
+    <link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+    <link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+    <link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header id="header">
+			<div id="logo-group">
+
+				<!-- PLACE YOUR LOGO HERE -->
+				<span id="logo" style="width:1000px; margin-bottom: 0px;"> 
+                <asp:Label ID="Label2" runat="server" Text="Rashmi Motors Private Limited" 
+                    Font-Size="20px" ForeColor="#FF66FF"></asp:Label>
+                <span id="Span1" style="width:200px; color: #FF66FF;">|| 
+                <asp:Label ID="lbl_uname" runat="server" ForeColor="#0066CC"></asp:Label>||
+                <asp:Label ID="lblbranch" runat="server" ForeColor="#0066CC"></asp:Label>||
+                 <asp:Label ID="lblusertype" runat="server" ForeColor="#0066CC"></asp:Label>||
+                 <asp:Label ID="lbl_usertypesale" runat="server" ForeColor="#0066CC"></asp:Label>
+                </span>
+               
+                </span>
+               
+				<!-- END LOGO PLACEHOLDER -->
+
+				<!-- Note: The activity badge color changes when clicked and resets the number to 0
+				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+				
+				
+			</div>
+			<!-- pulled right: nav area -->
+			<div class="pull-right">
+             <div id="Div2" runat="server" style="padding-top:15px; padding-right:20px; font-size:16px; float:left; color:#585B69; ">
+             
+					<span><a href="Spare_SalesEntry.aspx" target="_blank" <asp:Label ID="Label3" runat="server" Text="Counter Sale"></asp:Label></a> </span>
+				</div>
+           <div id="Div1" runat="server"  style="padding-top:15px; font-size:16px; float:left; color:#585B69; ">
+             
+					<span><a href="Report_Spare_StockPartnowise.aspx" target="_blank" <asp:Label ID="Label1" runat="server" Text="Stock"></asp:Label></a> </span>
+				</div>
+ 
+				<!-- collapse menu button -->
+                	
+				<div id="hide-menu" class="btn-header pull-right">
+             
+					<span> <a href="javascript:void(0);" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+				</div>
+				<!-- end collapse menu -->
+
+				<!-- logout button -->
+				<div id="logout" class="btn-header transparent pull-right">
+               
+					<span> <a href="Logout.aspx" title="Sign Out" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-sign-out"></i></a> </span>
+				</div>
+				<!-- end logout button -->
+
+
+				<!-- fullscreen button -->
+				<div id="fullscreen" class="btn-header transparent pull-right">
+           <%-- <%=uname%>--%>
+					<span> <a href="javascript:void(0);" onclick="launchFullscreen(document.documentElement);" title="Full Screen"><i class="fa fa-fullscreen"></i></a> </span>
+				</div>
+				<!-- end fullscreen button -->
+
+				<!-- multiple lang dropdown : find all flags in the image folder -->
+				
+				<!-- end multiple lang -->
+
+			</div>
+			<!-- end pulled right: nav area -->
+
+		</header>
+    <!-- END HEADER -->
+    <!-- Left panel : Navigation area -->
+    <!-- Note: This width of the aside area can be adjusted through LESS variables -->
+    <aside id="left-panel">
+
+			<!-- NAVIGATION : This navigation is also responsive
+
+			To make this navigation dynamic please make sure to link the node
+			(the reference to the nav > ul) after page load. Or the navigation
+			will not initialize.
+			-->
+			<nav>
+				<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+				Please note that these links work a bit different than
+				traditional href="" links. See documentation for details.
+				-->
+
+				<ul>
+					<li >
+						<a href="Home.aspx" ><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+					</li>
+                    	<li id="Master" runat="server">
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Master</span></a>
+					  <ul>
+                            <li  id="li_supreg" runat="server"><a href="Master_SupplierRegistration.aspx">Supplier Registration</a></li>
+                            <li id="li_suplist" runat="server"><a href="Master_SupplierDetails.aspx">Supplier List</a></li>
+                            <li id="li_cupreg" runat="server"><a href="Master_CustomerRegistration.aspx">Customer Registration</a></li>
+                            <li id="li_culist" runat="server"><a href="Master_CustomerDetails.aspx">Customer List</a></li>
+                            <li id="li_item" runat="server"><a href="Master_Item.aspx">Item Master</a></li>
+                            <li id="li_itemlist" runat="server"><a href="Master_ItemDetails.aspx">Item List</a></li>
+                            <li id="li_serviceheadreg" runat="server"><a href="Master_ServiceHead.aspx">Service Head Registration</a></li>
+                            <li id="li_vehiclemodelreg" runat="server"><a href="Master_VehicleModel.aspx">Vehicle Model Registration</a></li>
+                            <li id="li_techreg" runat="server"><a href="Master_NewTechnician.aspx">Technician Registration</a></li>
+                            <li id="li_superreg" runat="server"><a href="Master_NewSupervisor.aspx">Supervisor Registration</a></li>
+                            <li id="li_status" runat="server"><a href="JobCard_status.aspx">Job Card Status Check</a></li>
+                            <li id="li_Updatesaleprice" runat="server"><a href="Update_SalesPrice.aspx">Update Saleprice In All Branch</a></li>
+                        </ul>
+					</li>
+                    <li id="Service" runat="server">
+						<a href="#"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Service</span></a>
+						<ul>
+                            <li id="id11" runat="server"><a href="Service_JobEstimateEntry.aspx">Job Estimate</a></li>
+                             <li id="id12" runat="server"><a href="Report_ServiceEstimationNowise.aspx">Search Estimation No</a></li>
+                            <li id="id13" runat="server"><a href="Service_JobEstimation_List.aspx">Estimate List</a></li>
+                            <li id="id14" runat="server"><a href="Service_SupplimentaryJobEstimate.aspx">Supplementary Job Estimate</a></li>
+                            <li id="id15" runat="server"><a href="Report_ServiceSupplimentaryEstimationNowise.aspx">Search SupplimentaryEstimation No</a></li>
+                            <li id="id16" runat="server"><a href="Service_SupplimentaryJobEstimation_List.aspx">Supplementary Estimate List</a></li>
+                            <li id="id17" runat="server"><a href="Service_JobcardEntry.aspx">Open Job Card</a></li>
+                            <li id="id18" runat="server"><a href="Service_JobEntry_List.aspx">Job Card List</a></li>
+                            <li id="id19" runat="server"><a href="Service_SearchJobcardNoAndPrint.aspx">Search Job CardNo.</a></li>
+                          <%--  <li id="id20" runat="server"><a href="Service_SpareIssue.aspx">Spare Issue</a></li>
+                            <li id="id21" runat="server"><a href="Service_JobSpareIssue_List.aspx">Spare Issue List</a></li>
+                            <li id="id22" runat="server"><a href="Service_Job_SpareReturn.aspx">Spare Return</a></li>
+                            <li id="id23" runat="server"><a href="Service_JobcardSpareReturn_List.aspx">Spare Return List</a></li>--%>
+                            <li id="id24" runat="server"><a href="Service_JobcardOutsideService.aspx">Outside Service</a></li>
+                            <li id="id25" runat="server"><a href="Service_Jobcard_OutServiceList.aspx">Outside Service List</a></li>
+                            <li id="id26" runat="server"><a href="Service_Jobcard_SearchRegnoOutServiceList.aspx">Search RegNowise OutService</a></li>
+                            <li id="id27" runat="server"><a href="Service_JobProformaInvoice.aspx">Performa Invoice</a></li>
+                            <li id="id28" runat="server"><a href="Service_JobPerformaInvoice_List.aspx">Performa Invoice List</a></li>
+                            <li id="id29" runat="server"><a href="Service_JobFinalInvoice.aspx">Final Invoice</a></li>
+                            <li id="id30" runat="server"><a href="Service_JobFinalInvoice_List.aspx">Final Invoice List</a></li>
+                            <li id="Li1" runat="server"><a href="Service_JobFinalInvoice_List_InvoiceNo.aspx">Final Invoice Search</a></li>
+                            <li id="id31" runat="server"><a href="Service_PendingJobcard_List.aspx">Pending Job Cards</a></li>
+                            <li id="id32" runat="server"><a href="Service_JobFinalInvoice_Cancel.aspx">Canceled Bill Nos</a></li>
+                            <li id="id33" runat="server"><a href="Service_ServiceHistory.aspx">Service History</a></li>
+                        
+                        </ul>
+					</li>
+					<li id="SpareParts" runat="server">
+						<a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Spare Parts</span></a>
+						<ul>
+                          <li id="id20" runat="server"><a href="Service_SpareIssue.aspx">Spare Issue</a></li>
+                            <li id="id21" runat="server"><a href="Service_JobSpareIssue_List.aspx">Spare Issue List</a></li>
+                            <li id="id22" runat="server"><a href="Service_Job_SpareReturn.aspx">Spare Return</a></li>
+                            <li id="id23" runat="server"><a href="Service_JobcardSpareReturn_List.aspx">Spare Return List</a></li>
+                            <li id="id34" runat="server"><a href="Spare_EstimateEntry.aspx">Spare Estimate</a></li>
+                            <li id="id35" runat="server"><a href="Spare_EstimateEntryList.aspx">Spare Estimate List</a></li>
+                            <li id="id36" runat="server"><a href="Spare_PurchaseEntry.aspx">Purchase Entry</a></li>
+                            <li id="id37" runat="server"><a href="Spare_PurchaseEntryList.aspx">Purchase Entry List</a></li>
+                            <li id="li_receive" runat="server"><a href="Spare_ReceiveEntry.aspx">Receive Entry</a></li>
+                            <li id="li_receivelist" runat="server"><a href="Spare_ReceiveEntryList.aspx">Receive Entry List</a></li>
+                            <li id="id38" runat="server"><a href="Spare_Return_PurchaseEntryList.aspx">Purchase Return</a></li>
+                            <li id="id39" runat="server"><a href="Spare_Return_PurchaseReturnDetails.aspx">Purchase Return List</a></li>
+                            <li id="id40" runat="server"><a href="Spare_SalesEntry.aspx">Counter Sale</a></li>
+                            <li id="id41" runat="server"><a href="Spare_SalesEntryList.aspx">Counter Sale List</a></li>
+                            <li id="Li2" runat="server"><a href="Spare_SalesEntryList_Invoice.aspx">Counter Sale Search</a></li>
+                            <li id="id42" runat="server"><a href="Spare_Return_SalesEntry.aspx">Sale Return</a></li>
+                            <li id="id43" runat="server"><a href="Spare_Return_SalesEntryList.aspx">Sale Return List</a></li>
+                             <li id="id44" runat="server"><a href="Spare_Return_SalesEntrySearch.aspx">Bill No Wise Sale Return List </a></li>
+                            <li id="id45" runat="server"><a href="Spare_PurchaseTransfer.aspx">Stock Transfer</a></li>
+                            <li><a href="Report_Spare_StockTransfer.aspx">Stock Transfer List</a></li>
+                             <li><a href="Report_Spare_StockTransferAdd.aspx">Stock Added List</a></li>
+                            <li><a href="Spare_PurchaseTransfer_Edit.aspx">Stock Transfer Edit</a></li>
+                            <li id="li_adjust" runat="server"><a href="Spare_StockAdjustment.aspx">Stock Adjustment</a></li>
+                            <li id="li_itemadjust" runat="server"><a href="StockAdjustment.aspx">Item Stock Adjustment</a></li>
+
+                            <li id="li5" runat="server"><a href="stockajustment_Report.aspx"> Stock Adjustment Report</a></li>
+
+
+                           <%-- <li><a href="#">Stock Adjustment Statement</a></li>--%>
+                        </ul>
+					</li>
+				
+					<li id="Vehicle" runat="server">
+						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Vehicle</span></a>
+						<ul>
+                            <li id="id46" runat="server"><a href="Vehicle_Quotation.aspx">Quotation</a></li>
+                            <li id="id47" runat="server"><a href="Vehicle_QuotationDetailsDatewise.aspx">Quotation List</a></li>
+                             <li id="id48" runat="server"><a href="Vehicle_SearchQuotationAndPrint.aspx">Search Quotation No</a></li>
+                            <li id="id49" runat="server"><a href="Vehicle_PurchaseEntry.aspx">Vehicle Purchase Entry</a></li>
+                            <li id="id50" runat="server"><a href="Vehicle_PurchaseDetailsDatewise.aspx">Vehicle Purchase List</a></li>
+                            <li id="id51" runat="server"><a href="Vehicle_SaleEntry.aspx">Vehicle Sale</a></li>
+                            <li id="id52" runat="server"><a href="Vehicle_SalesListDatewise.aspx">Vehicle Sale List</a></li>
+                            <li id="id53" runat="server"><a href="Vehicle_SalesList_InvTypee.aspx">TaxType Vehicle Sale List</a></li>
+                            <li id="id54" runat="server"><a href="Vehicle_SaleDetails.aspx">Vehicle Sale Details</a></li>
+                            <li id="id55" runat="server"><a href="Vehicle_StockTransfer.aspx">Stock Transfer</a></li>
+                            <li id="id56" runat="server"><a href="Vehicle_SendTransferDetails.aspx">Stock Transfer Send List</a></li>
+                             <li id="id57" runat="server"><a href="Vehicle_ReceiveTransferDetails.aspx">Stock Transfer Receive List</a></li>
+                            <li id="id58" runat="server"><a href="Vehicle_PurchaseReturn.aspx">Purchase Return</a></li>
+                            <li id="id59" runat="server"><a href="Vehicle_PurchaseReturnDetails.aspx">Purchase Return List</a></li>
+                            <li id="id60" runat="server"><a href="Vehicle_SaleReturn.aspx">Sale Return</a></li>
+                            <li id="id61" runat="server"><a href="Vehicle_SalesReturnList.aspx">Sale Return List</a></li>
+                            <li id="id62" runat="server"><a href="Report_VehicleNetStock.aspx">Vehicle Net Stock</a></li>
+                            <li id="id63" runat="server"><a href="Vehicle_StockAdjustment.aspx">Vehicle Stock Adjustment</a></li>
+                            <li id="id64" runat="server"><a href="Vehicle_StockAdjustment_List.aspx">Stock Adjustment Statement</a></li>
+                           
+
+                        </ul>
+					</li>
+					
+                    					<li id="Admin" runat="server">
+						<a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Admin</span></a>
+						<ul>
+                          <%--  <li><a href="ZCreateUser.aspx">Create User</a></li>--%>
+                            <li><a href="ZViewUserDetails.aspx">View User</a></li>
+                            <li><a href="ZLockUser.aspx">Lock User</a></li>
+                          <%--  <li><a href="ZLockUser.aspx">Change Password</a></li>--%>
+                        </ul>
+					</li>
+                    
+					<li id="Report" runat="server">
+						<a href="#"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Reports</span></a>
+						<ul>
+                            <li id="id65" runat="server"><a href="Report_Service_JobCardRegister.aspx">JOb Card Register</a></li>
+                              <li id="Li17" runat="server"><a href="Report_SpareIssue.aspx">JOb Card Spare Issue</a></li>
+                            <li id="Li19" runat="server"><a href="Report_LabIssue.aspx">JOb Card Labour Issue</a></li>  
+                            <li id="id66" runat="server"><a href="Report_Spare_PurchaseRegister.aspx">DateWise Spare Purchase Report</a></li>
+                            <li id="id67" runat="server"><a href="Report_Spare_SalesRegister.aspx">DateWise Spare Sales Report</a></li>
+                            <li id="id68" runat="server"><a href="Report_Partywise_Spare_PurchaseRegister.aspx">Party wise Spare Purchase Report</a></li>
+                            <li id="id69" runat="server"><a href="Report_Partywise_Spare_SalesRegister.aspx">Customer wise Spare Sales Report</a></li>
+                            <li id="id70" runat="server"><a href="Report_Spare_PurchaseReturnRegister.aspx">Purchase Return Register</a></li>
+                            <li id="id71" runat="server"><a href="Report_Spare_SalesReturnRegister.aspx">Sales Return Register</a></li>
+                            <li id="id72" runat="server"><a href="Report_Spare_Stock.aspx">Spare Stock Inventory Report</a></li>
+                           <li id="id73" runat="server"><a href="Report_Spare_NetStock.aspx">Spare Net Stock Inventory Details</a></li>
+                             <li id="id74" runat="server"><a href="Report_SpareTotalStock.aspx">Spare Total Stock Inventory Datewise</a></li>
+                             <li id="id75" runat="server"><a href="Report_Spare_StockPartnowise.aspx">Spare Stock Inventory Partnowise</a></li>
+                            <li id="id76" runat="server"><a href="Report_Spare_StockTransfer.aspx">Spare Stock Transfer Report</a></li>
+                            <li id="id77" runat="server"><a href="Report_DailySalesReport.aspx">Daily sales Report(use vat)</a></li>
+                           <%--  <li id="id77" runat="server"><a href="Report_DailySalesReport1.aspx">Daily sales Report(use vat)</a></li>--%>
+
+                            <%-- <li id="Li9" runat="server"><a href="Report_DailySalesReport2.aspx">Daily sales Report</a></li>--%>
+                             <li id="Li10" runat="server"><a href="Report_DailySalesReport3.aspx">Daily sales Report</a></li>
+
+                            <%-- <li id="Li5" runat="server"><a href="Report_DailyCounterSale.aspx">Daily Counter sales Report</a></li>--%>
+
+                            <li id="Li6" runat="server"><a href="Report_CounterSale.aspx"> Counter sales Report(vat use)</a></li>
+                            <li id="Li8" runat="server"><a href="Report_CounterSale2.aspx"> Counter sales Report</a></li>
+
+
+
+                            <li id="id78" runat="server"><a href="Report_Vehicle_PurchaseRegister.aspx">DateWise Vehicle Purchase Report</a></li>
+                            <li id="id79" runat="server"><a href="Report_Vehicle_SalesListDatewise.aspx">DateWise Vehicle Sales Report</a></li>
+                            <li id="id80" runat="server"><a href="Report_PartywiseVehicle_PurchaseRegister.aspx">Party wise Vehicle Purchase Report</a></li>
+                            <li id="id81" runat="server"><a href="Report_Customerwise_Vehicle_SalesListDatewise.aspx">Customer wise Vehicle Sales Report</a></li>
+                            <li id="id82" runat="server"><a href="Report_ Vehicle_PurchaseReturnList.aspx">Purchase Return List</a></li>
+                            <li id="id83" runat="server"><a href="Report_Vehicle_SalesReturnList.aspx">Sales Return List</a></li>
+                            <li id="id84" runat="server"><a href="Report_VehicleNetStock.aspx">Vehicle Stock Report</a></li>
+                            
+                            <li id="id85" runat="server"><a href="Report_Vehicle_TransferDetails.aspx">Vehicle Stock Transfer Report</a></li>
+                             <li id="id86" runat="server"><a href="Report_Service_JobFinalInvoice_CancelList.aspx">Cancel Bill List</a></li>
+                             <li id="id87" runat="server"><a href="ItemPartTrack.aspx">Item Part Track</a></li>
+                            <li id="Li3" runat="server"><a href="ReportPurchaseentry.aspx">Purchase entry Details</a></li>
+
+                             <li id="Li4" runat="server"><a href="PartsAvailability.aspx">Parts Availability</a></li>
+                            <%-- <li id="Li4" runat="server"><a href="Report_PurchaseEntryDetails.aspx">PurchaseentryDetails new</a></li>
+
+                             <li id="Li5" runat="server"><a href="Rpurchase.aspx">PurchaseentryDetails new1</a></li>--%>
+                             <li id="Li7" runat="server"><a href="Part_Tracking.aspx">Parts  Track</a></li>
+                        </ul>	
+					</li>
+					
+					
+					
+				</ul>
+			</nav>
+			<span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+
+		</aside>
+    <!-- END NAVIGATION -->
+    <!-- MAIN PANEL -->
+    <div id="main" role="main">
+        <!-- RIBBON -->
+        <div id="ribbon">
+            <!-- breadcrumb -->
+            <ol class="breadcrumb">
+                <!-- This is auto generated -->
+            </ol>
+            <!-- end breadcrumb -->
+            <!-- You can also add more buttons to the
+				ribbon for further usability
+
+				Example below:
+
+				<span class="ribbon-button-alignment pull-right">
+				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+				</span> -->
+        </div>
+        <!-- END RIBBON -->
+        <!-- MAIN CONTENT -->
+        <div id="content">
+            <asp:Panel ID="Panel1" runat="server"  style="min-height:500px; overflow:auto;"  >
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            </asp:Panel>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN PANEL -->
+    <!--================================================== -->
+    <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>-->
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+        }
+    </script>
+    <script src="../../ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"
+        type="text/javascript"></script>
+    <script>
+        if (!window.jQuery.ui) {
+            document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+        }
+    </script>
+    <!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+    <!-- BOOTSTRAP JS -->
+    <script src="js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="js/notification/SmartNotification.min.js" type="text/javascript"></script>
+    <!-- JARVIS WIDGETS -->
+    <script src="js/smartwidgets/jarvis.widget.min.js" type="text/javascript"></script>
+    <!-- EASY PIE CHARTS -->
+    <script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js" type="text/javascript"></script>
+    <!-- SPARKLINES -->
+    <script src="js/plugin/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <!-- JQUERY VALIDATE -->
+    <script src="js/plugin/jquery-validate/jquery.validate.min.js" type="text/javascript"></script>
+    <!-- JQUERY MASKED INPUT -->
+    <script src="js/plugin/masked-input/jquery.maskedinput.min.js" type="text/javascript"></script>
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="js/plugin/select2/select2.min.js" type="text/javascript"></script>
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js" type="text/javascript"></script>
+    <!-- browser msie issue fix -->
+    <script src="js/plugin/msie-fix/jquery.mb.browser.min.js" type="text/javascript"></script>
+    <!-- FastClick: For mobile devices: you can disable this in app.js
+		<script src="js/plugin/fastclick/fastclick.js"></script> -->
+    <!--[if IE 7]>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<![endif]-->
+    <!-- Demo purpose only
+		<script src="js/demo.js" type="text/javascript"></script> -->
+    <!-- MAIN APP JS FILE -->
+    <script src="js/app.js" type="text/javascript"></script>
+    </form>
+</body>
+</html>

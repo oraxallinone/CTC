@@ -1,0 +1,25 @@
+﻿   /*AutoComplete flyout */
+.completionList {
+border:solid 1px #444444;
+margin:0px;
+padding:2px;
+height: auto;
+overflow:auto;
+background-color: #FFFFFF;
+}
+
+.listItem {
+color: #1C1C1C;
+}
+
+.itemHighlighted {
+background-color: #ffc0c0;
+}
+        
+/*    HOW TO USE
+        
+     CompletionListCssClass="completionList"
+     CompletionListHighlightedItemCssClass="itemHighlighted"
+     CompletionListItemCssClass="listItem"
+
+*/
